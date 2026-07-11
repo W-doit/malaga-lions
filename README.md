@@ -63,8 +63,13 @@ Sí, puedes desplegar gratis en GitHub Pages. El repo ya incluye un workflow aut
 
 1. Sube el código a GitHub (`main` branch)
 2. En el repo → **Settings** → **Pages**
-3. En **Build and deployment** → Source: **GitHub Actions**
-4. Haz push a `main` (o ejecuta el workflow manualmente en **Actions**)
+3. En **Build and deployment** → **Source:** elige **Deploy from a branch**
+4. En **Branch:** selecciona **`gh-pages`** y carpeta **`/ (root)`** → **Save**
+5. Haz push a `main` (o ejecuta el workflow en **Actions** → **Deploy to GitHub Pages** → **Run workflow**)
+
+El workflow compila React y publica solo la carpeta `dist/` en la rama `gh-pages`.
+
+> **Si la página sale en blanco:** casi siempre es porque Pages está usando la rama **`main`** en lugar de **`gh-pages`**. La rama `main` tiene el código fuente, no el sitio compilado.
 
 Cada push a `main` vuelve a publicar el sitio automáticamente.
 
