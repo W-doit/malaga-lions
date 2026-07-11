@@ -16,19 +16,19 @@ export default function Footer() {
           <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
             {BUSINESS.phone}
           </a>
-          <p>{BUSINESS.address}</p>
+          <p>{BUSINESS.addressFull}</p>
         </div>
 
         <div className="footer-col">
           <h4>Redes</h4>
           <a href={SOCIAL.instagram.url} target="_blank" rel="noopener noreferrer">
-            Instagram
+            Instagram · {SOCIAL.instagram.handle}
           </a>
           <a href={SOCIAL.tiktok.url} target="_blank" rel="noopener noreferrer">
-            TikTok
+            TikTok · {SOCIAL.tiktok.handle}
           </a>
           <a href={SOCIAL.facebook.url} target="_blank" rel="noopener noreferrer">
-            Facebook
+            Facebook · {SOCIAL.facebook.handle}
           </a>
         </div>
 

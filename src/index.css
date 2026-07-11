@@ -254,7 +254,7 @@ main {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('/lion-card.png') center/cover no-repeat;
+  background: url('/hero.png') center/cover no-repeat;
   transform: scale(1.05);
 }
 
@@ -262,10 +262,10 @@ main {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(139, 26, 26, 0.75) 0%,
-    rgba(212, 160, 23, 0.45) 50%,
-    rgba(27, 94, 32, 0.75) 100%
+    to bottom,
+    rgba(13, 13, 13, 0.55) 0%,
+    rgba(13, 13, 13, 0.35) 45%,
+    rgba(13, 13, 13, 0.65) 100%
   );
 }
 
@@ -382,17 +382,16 @@ main {
 }
 
 /* ── About ── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
 .about-text p {
   margin-bottom: 1rem;
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+.about-text-centered {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .about-text strong {
@@ -401,20 +400,6 @@ main {
 
 .about-text .btn {
   margin-top: 1rem;
-}
-
-.about-image {
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 3px solid transparent;
-  border-image: linear-gradient(var(--red), var(--gold), var(--green)) 1;
-  box-shadow: var(--shadow);
-}
-
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ── Reviews ── */
@@ -449,6 +434,11 @@ main {
   font-size: 0.8rem;
   color: var(--gold-light);
   font-weight: 600;
+}
+
+.review-source {
+  color: var(--text-muted);
+  font-weight: 400;
 }
 
 /* ── CTA Banner ── */

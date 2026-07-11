@@ -35,7 +35,50 @@ Desde el panel puedes añadir, editar y eliminar productos. Los cambios se guard
 - Facebook: [Rastas Málaga Lions](https://www.facebook.com/RastasMalagaLions/)
 - Mapa: [Google Maps](https://maps.app.goo.gl/GVFee8XccE9MBmwg6)
 
-## Despliegue
+## SEO y AEO (optimización para buscadores e IA)
+
+El sitio incluye:
+
+- **JSON-LD** (`HairSalon` + `WebSite`) — datos estructurados para Google e IA
+- **Open Graph / Twitter** — vistas previas al compartir en WhatsApp y redes
+- **`/robots.txt`** — permite crawlers de Google, GPTBot, Claude, etc.
+- **`/sitemap.xml`** — mapa del sitio
+- **`/llms.txt`** — resumen del negocio para agentes de IA
+
+Al desplegar, crea un archivo `.env` con tu dominio:
+
+```bash
+VITE_SITE_URL=https://tu-dominio.com
+```
+
+Luego `npm run build`. Sin esto, las meta tags usan rutas relativas (funciona, pero Open Graph funciona mejor con URL absoluta).
+
+## GitHub Pages
+
+Sí, puedes desplegar gratis en GitHub Pages. El repo ya incluye un workflow automático.
+
+**URL del sitio:** [https://w-doit.github.io/malaga-lions/](https://w-doit.github.io/malaga-lions/)
+
+### Pasos (solo una vez)
+
+1. Sube el código a GitHub (`main` branch)
+2. En el repo → **Settings** → **Pages**
+3. En **Build and deployment** → Source: **GitHub Actions**
+4. Haz push a `main` (o ejecuta el workflow manualmente en **Actions**)
+
+Cada push a `main` vuelve a publicar el sitio automáticamente.
+
+### Probar el build de GitHub Pages en local
+
+```bash
+# Windows PowerShell
+$env:VITE_BASE_PATH="/malaga-lions/"
+$env:VITE_SITE_URL="https://w-doit.github.io/malaga-lions"
+npm run build
+npm run preview
+```
+
+## Despliegue manual
 
 ```bash
 npm run build

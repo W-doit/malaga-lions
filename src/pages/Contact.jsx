@@ -11,7 +11,7 @@ export default function Contact() {
           <div className="contact-info">
             <div className="contact-block">
               <h3>📍 Dirección</h3>
-              <p>{BUSINESS.address}</p>
+              <p>{BUSINESS.addressFull}</p>
               <a href={MAPS.url} target="_blank" rel="noopener noreferrer" className="link-accent">
                 Abrir en Google Maps →
               </a>

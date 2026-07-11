@@ -8,9 +8,11 @@ import Social from './pages/Social';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined;
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Header />
       <main>
         <Routes>

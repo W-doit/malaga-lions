@@ -63,25 +63,20 @@ export default function Home() {
       <section className="section section-dark">
         <div className="container">
           <h2 className="section-title">¿Qué son las rastas?</h2>
-          <div className="about-grid">
-            <div className="about-text">
-              <p>
-                Las rastas (dreadlocks) son mechones de cabello que se entrelazan naturalmente o
-                de forma artesanal. Son mucho más que un peinado: representan identidad, cultura y
-                estilo personal.
-              </p>
-              <p>
-                En <strong>{BUSINESS.name}</strong> te guiamos en todo el proceso — desde la
-                primera consulta hasta el mantenimiento — para que disfrutes de unas rastas sanas,
-                bonitas y duraderas.
-              </p>
-              <a href={getWhatsAppUrl('¡Hola! Me gustaría una consulta sobre rastas.')} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                Consulta gratuita
-              </a>
-            </div>
-            <div className="about-image">
-              <img src="/lion-card.png" alt="Rastas Málaga Lions" />
-            </div>
+          <div className="about-text about-text-centered">
+            <p>
+              Las rastas (dreadlocks) son mechones de cabello que se entrelazan naturalmente o
+              de forma artesanal. Son mucho más que un peinado: representan identidad, cultura y
+              estilo personal.
+            </p>
+            <p>
+              En <strong>{BUSINESS.name}</strong> te guiamos en todo el proceso — desde la
+              primera consulta hasta el mantenimiento — para que disfrutes de unas rastas sanas,
+              bonitas y duraderas.
+            </p>
+            <a href={getWhatsAppUrl('¡Hola! Me gustaría una consulta sobre rastas.')} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Consulta gratuita
+            </a>
           </div>
         </div>
       </section>
@@ -89,15 +84,18 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <h2 className="section-title">Opiniones de clientes</h2>
-          <p className="section-lead">Lo que dicen quienes confían en nosotros</p>
+          <p className="section-lead">Reseñas reales de Google Maps</p>
           <div className="reviews-grid">
             {REVIEWS.map((review) => (
-              <blockquote key={review.id} className="review-card">
+              <blockquote key={review.id} className="review-card" lang={review.lang}>
                 <div className="review-stars">
                   {'★'.repeat(review.rating)}
                 </div>
                 <p>"{review.text}"</p>
-                <footer>— {review.author}</footer>
+                <footer>
+                  — {review.author}
+                  {review.source && <span className="review-source"> · {review.source}</span>}
+                </footer>
               </blockquote>
             ))}
           </div>
