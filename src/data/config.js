@@ -46,30 +46,39 @@ export const ADMIN_CREDENTIALS = {
   password: 'LionsMalaga2024',
 };
 
+/** Catálogo de WhatsApp Business — usa el número de teléfono (no el ID interno del catálogo) */
+export const WHATSAPP_SHOP = {
+  catalogUrl: `https://wa.me/c/${BUSINESS.phoneRaw}`,
+  catalogId: '115474692092135',
+};
+
 export const DEFAULT_PRODUCTS = [
   {
-    id: '1',
-    title: 'Extensiones de Rastas',
-    price: 45,
+    id: 'wa-1',
+    title: 'Aceite de canela y romero',
+    price: 13.5,
     description:
-      'Extensiones naturales de alta calidad. Consulta precio según longitud y cantidad.',
-    image: '',
+      'Aceite natural macerado de canela y romero. Ideal para el cuidado y mantenimiento de tus rastas.',
+    image: '/products/aceite-canela-romero.jpg',
+    whatsappUrl: `https://wa.me/p/34427878100130685/${BUSINESS.phoneRaw}`,
   },
   {
-    id: '2',
-    title: 'Arreglo de Raíces',
-    price: 35,
+    id: 'wa-2',
+    title: 'Durag y gorros de crochet',
+    price: null,
     description:
-      'Retoque profesional de raíces para mantener tus rastas impecables.',
-    image: '',
+      'Durag y gorros de crochet para rastas, trenzas, ondas y dreads. Colores: negro, blanco, rojo, rosa pastel, fucsia, azul marino, lila y estampados hip hop.',
+    image: '/products/durag-gorros.jpg',
+    whatsappUrl: `https://wa.me/p/27067932312796385/${BUSINESS.phoneRaw}`,
   },
   {
-    id: '3',
-    title: 'Kit de Mantenimiento',
-    price: 18,
+    id: 'wa-3',
+    title: 'Extensiones rastas',
+    price: null,
     description:
-      'Spray hidratante, gorro de ducha y aceite natural para el cuidado diario.',
-    image: '',
+      'Extensiones de rasta temporales o desmontables, hechas a mano con técnica de crochet. Quita y pon, reutilizables. Se añaden a tus rastas, como coletero o con clips.',
+    image: '/products/extensiones-rastas.jpg',
+    whatsappUrl: `https://wa.me/p/26259571593675866/${BUSINESS.phoneRaw}`,
   },
 ];
 
@@ -124,6 +133,8 @@ export function getWhatsAppUrl(message = BUSINESS.whatsappMessage) {
 }
 
 export function getOrderWhatsAppUrl(productTitle, price) {
-  const message = `¡Hola! Me interesa pedir: ${productTitle}${price ? ` (${price}€)` : ''}. ¿Podéis darme más información?`;
+  const priceBit =
+    price !== null && price !== undefined && price !== '' ? ` (${price}€)` : '';
+  const message = `¡Hola! Me interesa pedir: ${productTitle}${priceBit}. ¿Podéis darme más información?`;
   return getWhatsAppUrl(message);
 }

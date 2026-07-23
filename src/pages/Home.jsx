@@ -35,7 +35,7 @@ export default function Home() {
               Reservar cita
             </a>
             <Link to="/tienda" className="btn btn-outline">
-              Ver tienda
+              Ver tienda WhatsApp
             </Link>
           </div>
         </div>

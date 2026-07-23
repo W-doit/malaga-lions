@@ -2,6 +2,10 @@ import { getOrderWhatsAppUrl } from '../data/config';
 
 export default function ProductCard({ product }) {
   const hasImage = product.image && product.image.trim() !== '';
+  const orderUrl =
+    product.whatsappUrl?.trim() ||
+    getOrderWhatsAppUrl(product.title, product.price);
+  const hasPrice = product.price !== null && product.price !== '' && !Number.isNaN(Number(product.price));
 
   return (
     <article className="product-card">
@@ -11,21 +15,25 @@ export default function ProductCard({ product }) {
         ) : (
           <div className="product-placeholder">
             <span>📷</span>
-            <p>Imagen próximamente</p>
+            <p>Ver en WhatsApp</p>
           </div>
         )}
       </div>
       <div className="product-body">
         <h3>{product.title}</h3>
-        <p className="product-price">{product.price}€</p>
+        {hasPrice ? (
+          <p className="product-price">{product.price}€</p>
+        ) : (
+          <p className="product-price product-price-muted">Precio en WhatsApp</p>
+        )}
         <p className="product-desc">{product.description}</p>
         <a
-          href={getOrderWhatsAppUrl(product.title, product.price)}
+          href={orderUrl}
           className="btn btn-primary"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Pedir por WhatsApp
+          {product.whatsappUrl ? 'Ver en WhatsApp' : 'Pedir por WhatsApp'}
         </a>
       </div>
     </article>

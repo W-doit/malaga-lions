@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { ADMIN_CREDENTIALS } from '../data/config';
+import { ADMIN_CREDENTIALS, BUSINESS, WHATSAPP_SHOP } from '../data/config';
 import { useProducts } from '../hooks/useProducts';
 
-const emptyForm = { title: '', price: '', description: '', image: '' };
+const emptyForm = {
+  title: '',
+  price: '',
+  description: '',
+  image: '',
+  whatsappUrl: '',
+};
 
 export default function Admin() {
   const [loggedIn, setLoggedIn] = useState(
@@ -39,11 +45,13 @@ export default function Admin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const priceRaw = form.price.trim();
     const product = {
       title: form.title.trim(),
-      price: parseFloat(form.price) || 0,
+      price: priceRaw === '' ? null : parseFloat(priceRaw),
       description: form.description.trim(),
       image: form.image.trim(),
+      whatsappUrl: form.whatsappUrl.trim(),
     };
 
     if (!product.title) return;
@@ -61,9 +69,10 @@ export default function Admin() {
     setEditingId(product.id);
     setForm({
       title: product.title,
-      price: String(product.price),
-      description: product.description,
-      image: product.image,
+      price: product.price === null || product.price === undefined ? '' : String(product.price),
+      description: product.description || '',
+      image: product.image || '',
+      whatsappUrl: product.whatsappUrl || '',
     });
   };
 
@@ -116,16 +125,31 @@ export default function Admin() {
         <div className="admin-header">
           <div>
             <h1 className="page-title">Panel de Administración</h1>
-            <p className="page-lead">Gestiona los productos de la tienda</p>
+            <p className="page-lead">
+              Destaca productos en la web. El catálogo completo vive en WhatsApp.
+            </p>
           </div>
           <button type="button" className="btn btn-outline" onClick={handleLogout}>
             Cerrar sesión
           </button>
         </div>
 
+        <div className="admin-hint">
+          <p>
+            <strong>Cómo añadir un producto nuevo:</strong> créalo en WhatsApp Business → Catálogo →
+            producto → Compartir → Copiar enlace. Si el enlace termina con un ID largo y da error,
+            cámbialo para que termine con el teléfono:{' '}
+            <code>https://wa.me/p/PRODUCTO_ID/{BUSINESS.phoneRaw}</code>. El catálogo completo:{' '}
+            <a href={WHATSAPP_SHOP.catalogUrl} target="_blank" rel="noopener noreferrer">
+              {WHATSAPP_SHOP.catalogUrl}
+            </a>
+            .
+          </p>
+        </div>
+
         <div className="admin-grid">
           <form className="admin-form admin-product-form" onSubmit={handleSubmit}>
-            <h2>{editingId ? 'Editar producto' : 'Añadir producto'}</h2>
+            <h2>{editingId ? 'Editar producto' : 'Añadir producto destacado'}</h2>
 
             <label>
               Título
@@ -138,14 +162,14 @@ export default function Admin() {
             </label>
 
             <label>
-              Precio (€)
+              Precio (€) — opcional
               <input
                 type="number"
                 min="0"
                 step="0.01"
                 value={form.price}
                 onChange={(e) => setForm({ ...form, price: e.target.value })}
-                required
+                placeholder="Déjalo vacío si el precio está en WhatsApp"
               />
             </label>
 
@@ -160,14 +184,28 @@ export default function Admin() {
             </label>
 
             <label>
-              URL de imagen
+              Enlace del producto en WhatsApp
+              <input
+                type="url"
+                placeholder="https://wa.me/p/…"
+                value={form.whatsappUrl}
+                onChange={(e) => setForm({ ...form, whatsappUrl: e.target.value })}
+              />
+              <small>
+                Obligatorio para abrir el producto real en WhatsApp. Si está vacío, se envía un
+                mensaje genérico.
+              </small>
+            </label>
+
+            <label>
+              URL de imagen — opcional
               <input
                 type="url"
                 placeholder="https://ejemplo.com/imagen.jpg"
                 value={form.image}
                 onChange={(e) => setForm({ ...form, image: e.target.value })}
               />
-              <small>Pega un enlace directo a la imagen (ej. de Instagram o Google Drive)</small>
+              <small>Si no hay imagen, el botón sigue abriendo WhatsApp.</small>
             </label>
 
             <div className="form-actions">
@@ -205,8 +243,22 @@ export default function Admin() {
                     </div>
                     <div className="admin-product-info">
                       <strong>{p.title}</strong>
-                      <span>{p.price}€</span>
+                      <span>
+                        {p.price !== null && p.price !== undefined && p.price !== ''
+                          ? `${p.price}€`
+                          : 'Precio en WA'}
+                      </span>
                       <p>{p.description}</p>
+                      {p.whatsappUrl && (
+                        <a
+                          href={p.whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="link-accent"
+                        >
+                          Enlace WhatsApp →
+                        </a>
+                      )}
                     </div>
                     <div className="admin-product-actions">
                       <button type="button" className="btn btn-sm btn-outline" onClick={() => startEdit(p)}>

@@ -478,6 +478,68 @@ main {
   max-width: 600px;
 }
 
+.shop-catalog-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(27, 94, 32, 0.25));
+  border: 1px solid rgba(37, 211, 102, 0.35);
+}
+
+.shop-catalog-banner h2 {
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.shop-catalog-banner p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 520px;
+}
+
+.shop-subtitle {
+  font-family: var(--font-script);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--gold-light);
+  margin-bottom: 0.35rem;
+}
+
+.shop-subtitle-lead {
+  margin-bottom: 1.75rem;
+}
+
+.product-price-muted {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: var(--text-muted) !important;
+}
+
+.admin-hint {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: rgba(212, 160, 23, 0.1);
+  border-left: 3px solid var(--gold);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.admin-hint a {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.admin-hint code {
+  font-size: 0.8rem;
+  color: var(--gold-light);
+}
+
 /* ── Products ── */
 .products-grid {
   display: grid;
