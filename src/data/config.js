@@ -138,3 +138,11 @@ export function getOrderWhatsAppUrl(productTitle, price) {
   const message = `¡Hola! Me interesa pedir: ${productTitle}${priceBit}. ¿Podéis darme más información?`;
   return getWhatsAppUrl(message);
 }
+
+/** Prefijo correcto para GitHub Pages (/malaga-lions/) y local (/) */
+export function getAssetUrl(path) {
+  if (!path) return '';
+  if (/^https?:\/\//i.test(path) || path.startsWith('data:')) return path;
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${path.replace(/^\//, '')}`;
+}

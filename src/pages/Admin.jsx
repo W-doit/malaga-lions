@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ADMIN_CREDENTIALS, BUSINESS, WHATSAPP_SHOP } from '../data/config';
+import { ADMIN_CREDENTIALS, BUSINESS, WHATSAPP_SHOP, getAssetUrl } from '../data/config';
 import { useProducts } from '../hooks/useProducts';
 
 const emptyForm = {
@@ -236,7 +236,7 @@ export default function Admin() {
                   <li key={p.id} className="admin-product-item">
                     <div className="admin-product-thumb">
                       {p.image ? (
-                        <img src={p.image} alt={p.title} />
+                        <img src={getAssetUrl(p.image)} alt={p.title} />
                       ) : (
                         <span>📷</span>
                       )}

@@ -1,4 +1,4 @@
-import { getOrderWhatsAppUrl } from '../data/config';
+import { getOrderWhatsAppUrl, getAssetUrl } from '../data/config';
 
 export default function ProductCard({ product }) {
   const hasImage = product.image && product.image.trim() !== '';
@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
     <article className="product-card">
       <div className="product-image">
         {hasImage ? (
-          <img src={product.image} alt={product.title} loading="lazy" />
+          <img src={getAssetUrl(product.image)} alt={product.title} loading="lazy" />
         ) : (
           <div className="product-placeholder">
             <span>📷</span>
