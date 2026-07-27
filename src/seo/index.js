@@ -7,7 +7,7 @@ export const SEO = {
   keywords:
     'rastas Málaga, dreadlocks Málaga, extensiones rastas, arreglo rastas, dread maker, Rastas Málaga Lions, peluquería rastas',
   locale: 'es_ES',
-  image: '/hero.png',
+  image: '/malagalions.png',
   imageAlt: 'Rastas Málaga Lions — Dread Maker en Málaga',
 };
 

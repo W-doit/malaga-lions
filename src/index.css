@@ -254,7 +254,7 @@ main {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('/hero.png') center/cover no-repeat;
+  background: url('/malagalions.png') center/cover no-repeat;
   transform: scale(1.05);
 }
 
@@ -366,6 +366,14 @@ main {
   font-size: 2.5rem;
   display: block;
   margin-bottom: 1rem;
+}
+
+.service-icon-svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  margin: 0 auto;
+  color: var(--gold-light);
 }
 
 .service-card h3 {

@@ -1,6 +1,33 @@
 import { Link } from 'react-router-dom';
 import { BUSINESS, REVIEWS, getWhatsAppUrl } from '../data/config';
 
+const MagicWandIcon = () => (
+  <svg
+    className="service-icon-svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path
+      d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 11.8 19 13M17.8 6.2 19 5M12.2 11.8 11 13M12.2 6.2 11 5"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    />
+    <path
+      d="m9.5 14.5-7.07 7.07a1 1 0 0 0 1.41 1.41L10.91 15.9"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    />
+    <path
+      d="m13.5 10.5 2 2a1.2 1.2 0 0 0 1.7 0l.8-.8a1.2 1.2 0 0 0 0-1.7l-2-2a1.2 1.2 0 0 0-1.7 0l-.8.8a1.2 1.2 0 0 0 0 1.7Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const services = [
   {
     title: 'Creación de Rastas',
@@ -15,7 +42,7 @@ const services = [
   {
     title: 'Arreglos y Mantenimiento',
     desc: 'Retoque de raíces, reparación y cuidado para que tus rastas siempre luzcan perfectas.',
-    icon: '🔧',
+    icon: <MagicWandIcon />,
   },
 ];
 
