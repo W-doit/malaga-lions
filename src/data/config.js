@@ -54,13 +54,22 @@ export const WHATSAPP_SHOP = {
 
 export const DEFAULT_PRODUCTS = [
   {
-    id: 'wa-1',
-    title: 'Aceite de canela y romero',
-    price: 13.5,
+    id: 'wa-elixir',
+    title: 'Elixir de canela y romero',
+    price: 14.5,
     description:
-      'Aceite natural macerado de canela y romero. Ideal para el cuidado y mantenimiento de tus rastas.',
-    image: '/products/aceite-canela-romero.jpg',
-    whatsappUrl: `https://wa.me/p/34427878100130685/${BUSINESS.phoneRaw}`,
+      'Elixir natural de canela y romero para el cuidado y mantenimiento de tus rastas.',
+    image: '/products/elixir-de-canela-y-romero.jpg',
+    whatsappUrl: `https://wa.me/p/28017044207984493/${BUSINESS.phoneRaw}`,
+  },
+  {
+    id: 'wa-coletas',
+    title: 'Coletas personalizadas',
+    price: null,
+    description:
+      'Coleteros artesanales con trenzas y/o rastas, hechos a medida: colores, longitud, decoraciones y opción fija o desmontable.',
+    image: '/products/coletas-personalizadas-coleteros-artesan.jpg',
+    whatsappUrl: `https://wa.me/p/27670384219285315/${BUSINESS.phoneRaw}`,
   },
   {
     id: 'wa-2',
@@ -76,7 +85,7 @@ export const DEFAULT_PRODUCTS = [
     title: 'Extensiones rastas',
     price: null,
     description:
-      'Extensiones de rasta temporales o desmontables, hechas a mano con técnica de crochet. Quita y pon, reutilizables. Se añaden a tus rastas, como coletero o con clips.',
+      'Extensiones de rasta temporales o desmontables, hechas a mano con crochet (solo aguja, sin productos). Técnica híbrida, quita y pon, reutilizables. Se añaden a tus rastas, como coletero o con clips.',
     image: '/products/extensiones-rastas.jpg',
     whatsappUrl: `https://wa.me/p/26259571593675866/${BUSINESS.phoneRaw}`,
   },

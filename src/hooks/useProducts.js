@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DEFAULT_PRODUCTS } from '../data/config';
 
-const STORAGE_KEY = 'rastas-malaga-products-v4';
+const STORAGE_KEY = 'rastas-malaga-products-v7';
 
 function loadProducts() {
   try {
